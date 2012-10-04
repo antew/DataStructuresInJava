@@ -11,6 +11,7 @@ import com.antew.lang.OrderedList;
 import com.antew.lang.Visitor;
 import com.antew.lang.exception.ContainerEmptyException;
 import com.antew.lang.exception.ContainerFullException;
+import com.antew.lang.exception.InvalidOperationException;
 
 public class OrderedListAsArray extends AbstractSearchableContainer implements
         OrderedList {
@@ -146,7 +147,7 @@ public class OrderedListAsArray extends AbstractSearchableContainer implements
         }
 
         @Override
-        public void insertAfter(Comparable object) throws ContainerEmptyException, ContainerFullException {
+        public void insertAfter(Comparable object) throws ContainerFullException, InvalidOperationException {
             if (count == array.length)
                 throw new ContainerFullException();
 
@@ -163,7 +164,7 @@ public class OrderedListAsArray extends AbstractSearchableContainer implements
         }
 
         @Override
-        public void insertBefore(Comparable object) throws ContainerFullException {
+        public void insertBefore(Comparable object) throws ContainerFullException, InvalidOperationException {
             if (count == array.length)
                 throw new ContainerFullException();
 

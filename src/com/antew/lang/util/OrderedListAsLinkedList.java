@@ -134,7 +134,7 @@ public class OrderedListAsLinkedList extends AbstractSearchableContainer impleme
 
         @Override
         public void remove() throws ContainerEmptyException {
-            list.remove(element);
+            list.remove(element.getData());
             count--;
         }
 
