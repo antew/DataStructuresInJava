@@ -16,7 +16,7 @@ public class StackAsArray extends AbstractContainer implements Stack {
     public StackAsArray(int size) {
         stack = new Object[size];
     }
-    
+
     @Override
     public boolean isEmpty() {
         return false;
@@ -42,17 +42,17 @@ public class StackAsArray extends AbstractContainer implements Stack {
     @Override
     public Enumeration getEnumeration() {
         return new Enumeration() {
-            
-            protected int position;
-            
+
+            protected int position = 0;
+
             @Override
             public Object nextElement() throws NoSuchElementException {
                 if (position >= getCount())
                     throw new NoSuchElementException();
-                
+
                 return stack[position++];
             }
-            
+
             @Override
             public boolean hasMoreElements() {
                 return position < getCount();
@@ -64,7 +64,7 @@ public class StackAsArray extends AbstractContainer implements Stack {
     public Object getTop() throws ContainerEmptyException {
         if (count == 0)
             throw new ContainerEmptyException("Stack is empty!");
-        
+
         return stack[count -1];
     }
 
@@ -72,20 +72,20 @@ public class StackAsArray extends AbstractContainer implements Stack {
     public void push(Object object) throws ContainerFullException {
         if (count == stack.length)
             throw new ContainerFullException("Stack is full!");
-        
+
         stack[count++] = object;
-        
+
 
     }
 
     @Override
     public Object pop() throws ContainerEmptyException {
-        if (count == 0) 
+        if (count == 0)
             throw new ContainerEmptyException("Stack is empty!");
-        
+
         Object retVal = stack[--count];
         stack[count] = null;
-        
+
         return retVal;
     }
 

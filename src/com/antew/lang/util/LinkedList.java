@@ -1,22 +1,15 @@
 package com.antew.lang.util;
 
-import com.antew.lang.exception.ContainerEmptyException;
 
 public class LinkedList {
     private Element head;
     private Element tail;
 
-    public Element getHead() throws ContainerEmptyException {
-        if (head == null)
-            throw new ContainerEmptyException();
-
+    public Element getHead() {
         return head;
     }
 
-    public Element getTail() throws ContainerEmptyException {
-        if (tail == null)
-            throw new ContainerEmptyException();
-
+    public Element getTail() {
         return tail;
     }
 
@@ -61,25 +54,25 @@ public class LinkedList {
     public void remove(Object item) {
         Element temp = head;
         Element previous = null;
-        
+
         while (temp != null && temp.data != item) {
             previous = temp;
             temp = temp.next;
         }
-        
+
         if (temp == null)
             throw new IllegalArgumentException("Item not found!");
-        
+
         // If the found item is the head of the list, re-assign the head element
         if (temp == head)
             head = temp.next;
         else
             previous.next = temp.next;
-        
+
         if (temp == tail)
             tail = previous;
     }
-    
+
     public final class Element {
         private Object data;
         private Element next;
@@ -95,6 +88,29 @@ public class LinkedList {
 
         public Element getNext() {
             return next;
+        }
+
+        public void insertAfter(Object item) {
+            next = new Element(item, next);
+            if (tail == this)
+                tail = next;
+        }
+
+        public void insertBefore(Object item) {
+            // Set the new object to have the current object as its successor
+            Element temp = new Element(item, this);
+
+            // Make 'item' the new head of the list if necessary
+            if (this == head)
+                head = temp;
+            else {
+                Element previous = head;
+                // Walk through the list until we find the element before this one
+                while (previous != null && previous.next != this)
+                    previous = previous.next;
+
+                previous.next = temp;
+            }
         }
     }
 }
