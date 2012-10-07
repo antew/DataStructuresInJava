@@ -6,6 +6,6 @@ public interface Container extends Comparable{
     boolean isEmpty();
     boolean isFull();
     void purge();
-    void accept(Visitor visitor) throws ContainerEmptyException;
+    void accept(Visitor visitor);
     Enumeration getEnumeration() throws ContainerEmptyException;
 }

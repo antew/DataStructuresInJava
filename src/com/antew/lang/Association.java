@@ -35,4 +35,9 @@ public class Association extends AbstractObject {
         
         return result + " }";
     }
+
+    @Override
+    public int hashCode() {
+        return key.hashCode();
+    }
 }
