@@ -31,4 +31,10 @@ public class Dbl extends AbstractObject {
         return Double.toString(value);
     }
 
+    @Override
+    public int hashCode() {
+        long bits = Double.doubleToLongBits(value);
+        return (int) (bits >>> 20);
+    }
+
 }

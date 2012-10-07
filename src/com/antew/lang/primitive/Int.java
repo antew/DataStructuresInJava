@@ -32,4 +32,9 @@ public class Int extends AbstractObject {
     public String toString() {
         return Integer.toString(value);
     }
+
+    @Override
+    public int hashCode() {
+        return value;
+    }
 }

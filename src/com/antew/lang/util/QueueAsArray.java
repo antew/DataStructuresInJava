@@ -33,7 +33,7 @@ public class QueueAsArray extends AbstractContainer implements Queue {
     }
 
     @Override
-    public void accept(Visitor visitor) throws ContainerEmptyException {
+    public void accept(Visitor visitor) {
         for (int i = 0; i < count && !visitor.isDone(); i++) {
             visitor.visit(array[i]);
         }

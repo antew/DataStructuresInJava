@@ -24,7 +24,7 @@ public class QueueAsLinkedList extends AbstractContainer implements Queue {
     }
 
     @Override
-    public void accept(Visitor visitor) throws ContainerEmptyException {
+    public void accept(Visitor visitor) {
         for (LinkedList.Element element = queue.getHead(); element != null && !visitor.isDone(); element = element.getNext()) {
             visitor.visit(element);
         }

@@ -80,7 +80,7 @@ public class OrderedListAsArray extends AbstractSearchableContainer implements
     }
 
     @Override
-    public void accept(Visitor visitor) throws ContainerEmptyException {
+    public void accept(Visitor visitor) {
         for (int i = 0; i < count && !visitor.isDone(); i++)
             visitor.visit(array[i]);
     }

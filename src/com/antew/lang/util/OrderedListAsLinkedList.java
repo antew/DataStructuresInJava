@@ -60,7 +60,7 @@ public class OrderedListAsLinkedList extends AbstractSearchableContainer impleme
     }
 
     @Override
-    public void accept(Visitor visitor) throws ContainerEmptyException {
+    public void accept(Visitor visitor) {
         for (LinkedList.Element e = list.getHead(); e != null && !visitor.isDone(); e = e.getNext())
             visitor.visit(e);
     }

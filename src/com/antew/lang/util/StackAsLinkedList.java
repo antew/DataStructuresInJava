@@ -24,7 +24,7 @@ public class StackAsLinkedList extends AbstractContainer implements Stack {
     }
 
     @Override
-    public void accept(Visitor visitor) throws ContainerEmptyException {
+    public void accept(Visitor visitor) {
         for (LinkedList.Element element = stack.getHead(); element != null && !visitor.isDone(); element = element.getNext())
             visitor.visit(element);
     }
