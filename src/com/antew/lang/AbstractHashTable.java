@@ -14,4 +14,11 @@ public abstract class AbstractHashTable extends AbstractSearchableContainer impl
     protected final int h(Object object) {
         return g(f(object));
     }
+    
+    @Override
+    public double getLoadFactor() {
+        return (double) getCount() / getLength();
+    }
+    
+    
 }
