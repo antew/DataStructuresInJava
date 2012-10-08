@@ -1,10 +1,10 @@
-package com.antew.lang;
+package com.antew.lang.util;
 
+import com.antew.lang.Comparable;
+import com.antew.lang.Cursor;
 import com.antew.lang.exception.ContainerEmptyException;
 import com.antew.lang.exception.ContainerFullException;
 import com.antew.lang.exception.InvalidOperationException;
-import com.antew.lang.util.OrderedListAsArray;
-import com.antew.lang.util.SortedList;
 
 public class SortedListAsArray extends OrderedListAsArray implements SortedList {
 
