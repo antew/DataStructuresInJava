@@ -1,7 +1,17 @@
 package com.antew.lang;
 
-public interface Tree {
+import com.antew.lang.exception.ContainerEmptyException;
+import com.antew.lang.exception.ContainerFullException;
+
+public interface Tree extends Container {
     Object getKey();
-    int getDegree();
     Tree getSubtree(int i);
+    boolean isEmpty();
+    boolean isLeaf();
+    int getDegree();
+    int getHeight();
+    void depthFirstTraversal(PrePostVisitor visitor);
+    void breadthFirstTraversal(Visitor visitor) throws ContainerFullException, ContainerEmptyException;
+    
+    
 }
